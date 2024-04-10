@@ -1,0 +1,49 @@
+
+PHP:
+<?php
+
+class Usuario
+{
+    private string $nome;
+    private float $peso;
+    private float $altura;
+    private SexoEnum $sexo;
+    private DateTimeImmutable $dataNascimento;
+
+    public function __construct(
+        string $nome,
+        float $peso,
+        float $altura,
+        SexoEnum $sexo,
+        DateTimeImmutable $dataNascimento
+    ) {
+        $this->nome = $nome;
+        $this->peso = $peso;
+        $this->altura = $altura;
+        $this->sexo = $sexo;
+        $this->dataNascimento = $dataNascimento;
+    }
+
+    public getNome(): string
+    {
+        return $this->nome;
+    }
+
+    public getPeso(): float
+    {
+        return $this->peso;
+    }
+
+    public getAltura(): float
+    {
+        return $this->altura;
+    }
+
+    public getSexo(): SexoEnum
+    {
+        return $this->sexo;
+    }
+
+    public getDataNascimento(): DateTimeImmutable
+    {
+        return $this->dataNascimento;
