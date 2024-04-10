@@ -1,7 +1,3 @@
-
-PHP:
-<?php
-
 class Usuario
 {
     private string $nome;
@@ -10,18 +6,18 @@ class Usuario
     private SexoEnum $sexo;
     private DateTimeImmutable $dataNascimento;
 
-    public function __construct(
-        string $nome,
-        float $peso,
-        float $altura,
-        SexoEnum $sexo,
-        DateTimeImmutable $dataNascimento
+    $usuario = new Usuario(
+        nome: $_POST['nome'],
+        peso: $_POST['peso'],
+        altura: $_POST['altura'],
+        sexo: SexoEnum::from($_POST['sexo']),
+        dataNascimento: new DateTimeImmutable($_POST['dataNasc'])
     ) {
-        $this->nome = $nome;
-        $this->peso = $peso;
-        $this->altura = $altura;
-        $this->sexo = $sexo;
-        $this->dataNascimento = $dataNascimento;
+        $_POST->nome = $nome;
+        $_POST->peso = $peso;
+        $_POST->altura = $altura;
+        $_POST->sexo = $sexo;
+        $_POST->dataNascimento = $dataNascimento;
     }
 
     public getNome(): string
