@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bet365</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+
+background-image:url("https://a.espncdn.com/media/motion/2023/1025/Hu_231025_BR_Futebol_Brasileiro_Palmeiras_SaoPaulo_Gols_FinalGameHighlight/Hu_231025_BR_Futebol_Brasileiro_Palmeiras_SaoPaulo_Gols_FinalGameHighlight.jpg")
+}
+
+        .navbar {
+            background-color: #4CAF50; /* Cor de fundo da barra de navegação */
+            color: #fbb03b; /* Cor do texto na barra de navegação */
+            padding: 10px;
+            text-align: center;
+        }
+        .container {
+            width: 300px;
+            padding: 20px;
+            background-color: #ffffff; /* Cor de fundo do formulário */
+            border-radius: 8px;
+            box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.2);
+            text-align: center;
+            margin: 50px auto;
+        }
+        h1 {
+            color: #ffffff; /* Cor do texto do cabeçalho */
+            margin-bottom: 20px;
+        }
+        label {
+            display: block;
+            margin-bottom: 5px;
+            color: #091e3d; /* Cor do texto dos rótulos */
+        }
+        input[type="text"], input[type="password"] {
+            width: calc(100% - 22px);
+            padding: 10px;
+            margin-bottom: 20px;
+            border: none;
+            border-bottom: 2px solid #091e3d; /* Cor da linha do campo */
+            background-color: transparent;
+            color: #091e3d; /* Cor do texto do campo */
+            outline: none;
+        }
+        input[type="text"]:focus, input[type="password"]:focus {
+            border-bottom: 2px solid #fbb03b; /* Cor da linha do campo quando em foco */
+        }
+        input[type="submit"] {
+            width: 100%;
+            padding: 10px;
+            background-color: #388e3c; /* Cor do botão de envio (verde escuro) */
+            color: #ffffff; /* Cor do texto do botão de envio */
+            border: none;
+            border-radius: 25px; /* Forma arredondada do botão */
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+        input[type="submit"]:hover {
+            background-color: #1b5e20; /* Cor do botão de envio ao passar o mouse (verde mais escuro) */
+        }
+        .remember-me {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 20px;
+            color: #091e3d; /* Cor do texto de "Ficar conectado" */
+        }
+        .remember-me input[type="checkbox"] {
+            margin-right: 5px;
+        }
+        .register-link {
+            text-align: center;
+            color: #2196F3; /* Cor do texto do link de registro */
+        }
+        .register-link a {
+            color: #2196F3; /* Cor do link de registro */
+            text-decoration: none;
+        }
+        .register-link a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bet365</title>
+    <style>
+        /* Estilos CSS aqui */
+    </style>
+</head>
+<body>
+    <div class="navbar">
+        <h1>LOGIN</h1>
+    </div>
+    <div class="container">
+        <form id="loginForm" method="post" action="process.php">
+            <label for="username">Usuário:</label>
+            <input type="text" id="username" name="username">
+
+            <label for="password">Senha:</label>
+            <input type="password" id="password" name="password">
+
+            <input type="submit" value="Entrar">
+        </form>
+        <div class="remember-me">
+            <input type="checkbox" id="remember-me" name="remember-me">
+            <label for="remember-me">Ficar conectado</label>
+        </div>
+        <div class="register-link">
+            <a href="/register">Ainda não tem conta? Clique aqui para se registrar.</a>
+        </div>
+        <div id="error-message" style="color: red; display: none;">Erro de login. Verifique suas credenciais e tente novamente.</div>
+    </div>
+
+    <script>
+        document.getElementById('loginForm').addEventListener('submit', function(event) {
+            event.preventDefault(); 
+            
+           
+            var username = document.getElementById('username').value;
+            var password = document.getElementById('password').value;
+            var rememberMe = document.getElementById('remember-me').checked;
+
+           
+            if (username === "usuario" && password === "senha") {
+                // Se o login estiver correto, redireciona para outra página
+                localStorage.setItem('username', username);
+                localStorage.setItem('password', password);
+                localStorage.setItem('rememberMe', rememberMe);
+                window.location.href = '/outra-pagina.html';
+            } else {
+        
+                document.getElementById('error-message').style.display = 'block';
+            }
+        });
+    </script>
+</body>
+</html>
