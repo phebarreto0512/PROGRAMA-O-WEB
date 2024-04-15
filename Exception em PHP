@@ -1,1 +1,36 @@
+<?php
+
+include_once __DIR__ . '/src/Usuario.php';
+include_once __DIR__ . '/src/CalculadoraImc.php';
+include_once __DIR__ . '/src/SexoEnum.php';
+include_once __DIR__ . '/src/ClassificacaoImcEnum.php';
+include_once __DIR__ . '/src/ExemploException.php';
+
+try {
+    $usuario = new Usuario('Phelipe', new DateTime('2000-12-05'), 88, 1.83, SexoEnum::M);
+
+    $imc = CalculadoraImc::calcular($usuario->getPeso(), $usuario->getAltura());
+
+    if ($imc < 18.5) {
+        $classificacao = ClassificacaoImcEnum::ABAIXO_PESO;
+    } elseif ($imc < 24.9) {
+        $classificacao = ClassificacaoImcEnum::NORMAL;
+    } else {
+        $classificacao = ClassificacaoImcEnum::SOBREPESO;
+    }
+
+    print_r("IMC: " . $imc . "\n");
+    print_r("Classificação: " . $classificacao . "\n");
+    
+    print_r($usuario->fazAniversarioHoje(new DateTime('2000-10-04')));
+} catch (ExemploException $e) {
+    // Tratamento específico para ExemploException
+    echo "Erro específico: " . $e->getMessage();
+} catch (InvalidArgumentException $e) {
+    // Tratamento para argumentos inválidos (ex: altura <= 0)
+    echo "Erro no cálculo do IMC: " . $e->getMessage();
+} catch (\Throwable $th) {
+    // Tratamento genérico para outras exceções
+    echo "Erro geral: " . $th->getMessage();
+}
 
