@@ -4,7 +4,7 @@
         $percentis = match ($sexo) {
             'feminino' => self::getPercentisFeminino($idade),
             'masculino' => self::getPercentisMasculino($idade),
-            default => throw new InvalidArgumentException('Sexo inválido fornecido'),
+            
         };
 
         $baixoPesoLimite = $percentis[0];
